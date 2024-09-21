@@ -1,0 +1,18 @@
+ Why did you choose the tools, libraries, and language you used for the coding exercise?
+
+For this exercise, I used Python, Flask, SQLite and SQLAlchemy. Additionally, I used the json and datetime libraries to handle various formatting. The main design decision I made was choosing Flask and SQLite. I chose Flask because it is easy to get started with for small projects and reduces the time spent writing boilerplate code. If the project was larger and more complex, I likely would have chosen a different framework such as Java SpringBoot. Additionally, for the scope of the project, I felt that it would be unrealistic for me to store everything in memory to only exist during program execution, because I feel that differs too much from reality. So, to handle persistent storage of data, I store SQLite, a simple and “lite” SQL flavor/implementation. To make my code easier to read and safer, I used SQLAlchemy as an ORM.
+
+2. What are the advantages and disadvantages of your solution?
+
+Advantages:
+* The chosen tech stack allows for quick development and easy maintenance, making it suitable for demonstrating a proof of concept.
+* Using SQLite ensures that data persists across program executions, aligning the application behavior more closely with real-world scenarios.
+* SQLAlchemy enhances code readability and provides a layer of safety by managing database interactions effectively.
+
+Disadvantages:
+* The assignment did not specify how to handle negative transactions. I implemented a method similar to how the American Express app manages refunds by consuming the oldest transactions (with the same payer) first, until the negative transaction was fully satisfied. If a negative transaction exceeds the total of positive transactions, the system throws an error. While this approach aligns with expected business logic, it may not reflect the intended handling as per the assignment, introducing potential discrepancies.
+* The solution is effective for small-scale applications but may not scale well. As the project grows in complexity, additional database tables and comprehensive documentation will be necessary to manage interactions between the frontend and backend effectively.
+
+
+3. What has been a favorite school/personal project thus far? What about it that challenged you?
+My favorite personal project so far was my recent submission to HackMIT 2024 which occurred last weekend. In short, we built an AI Triage Nurse (the person you speak to when you call/visit Urgent Care/EMS). The greatest challenge I faced was connecting our entire tech stack (Twilio, Express, Convex, React, etc.). I spent a lot of time burning the API documentation into my eyes so that we could properly integrate the Twilio API with our system without running into issues, while preserving the immersion for the end user. While we decided against integrating it in the end, I experienced some challenges with deploying a backend server to production. To do so, I learned how to spin up a Digital Ocean Droplet instance, set up reverse-proxying with NGINX, and set up a SSL certificate so that we could use the wss protocol for WebSockets. Even though we didn’t use my server in the end, I gained a lot of experience with deploying a backend from start to finish.
